@@ -2,13 +2,17 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "node": true
+        "node": true,
+        "es6": true
     },
     "extends": "prettier",
     "plugins": [
         "prettier"
       ],
     "rules": {
+        "prefer-arrow-callback":"error",
+        "no-var":"error",
+        "prefer-const":"error",
         "no-duplicate-case":"error",
         "no-empty":"error",
         "no-extra-semi":"error",
@@ -24,7 +28,7 @@
         "camelcase": "error",
         "indent": [
             "error",
-            2
+            4
         ],
         "quotes": [
             "error",
@@ -33,7 +37,9 @@
         "semi": [
             "error",
             "always"
-        ],
-        "prettier/prettier": "error"
+        ]
+    },
+    "parserOptions": {
+        "ecmaVersion": 6
     }
 }
