@@ -1,55 +1,82 @@
-/*
-POST - new user
-POST - login
-GET - get user data
-POST - skills to learn
-POST - skills to teach
---------------------------
-Later:
-Delete account
-Update bio
-Update password
-Update email address (?)
-*/
-
-
-// const db = require("../models");
 const express = require("express");
 const router = express.Router();
 
-// Get data for a user
+const knexConfig = require("../knexfile");
+const knex = require("knex")(knexConfig["development"]);
+
+/*
+    User-related Routes
+*/
+
+// get all users
+router.get("/api/users", (req, res) => {
+    knex
+    .select()
+    .from("user")
+    .then(results => res.json(results));
+});
+
+// get a specific user
 router.get("/api/users/:id", (req, res) => {
-    console.log(res);
+    knex
+    .select()
+    .from("user")
+    .where({
+        id: req.params.id
+    })
+    .then(results => res.json(results));
 });
 
-// Register a new user
-router.post("/register", (req, res) => {
-    console.log(res);
+// create new user
+router.post("/api/users", (req, res) => {
+    const userData = {
+        username: req.body.username,
+        email: req.body.email,
+        description: req.body.description
+    }
+    knex("user")
+    .insert(userData)
+    .then(results => {
+        res.status(201).json({ id: results[0], ...userData });
+    })
+    .catch(error => {
+        console.error(error);
+        res.status(400).end();
+    });
 });
 
-// Login a user
-router.post("/login", (req, res) => {
-    console.log(res);
+/*
+    Skill-related Routes
+*/
+
+// get all skills
+router.get("/api/skills", (req, res) => {
+    knex
+    .select()
+    .from("skill")
+    .then(results => res.json(results));
 });
 
-// Getting skill names to learn
+// get all skills a specific user wants to learn
 router.get("/api/users/:id/learn", (req, res) => {
-    console.log(res);
+    knex
+    .select()
+    .from("skillsToLearn")
+    .where({
+        userId: req.params.id
+    })
+    .then(results => res.json(results));
 });
 
-// Add a skill to learn
-router.post("/api/users/:id/learn", (req, res) => {
-    console.log(res);
-});
-
-// Getting skill names to teach
+// get all skills a specific user wants to teach
 router.get("/api/users/:id/teach", (req, res) => {
-    console.log(res);
-});
-
-// Add a skill to teach
-router.post("/api/users/:id/teach", (req, res) => {
-    console.log(res);
+    knex
+    .select()
+    .from("skillsToTeach")
+    .where({
+        userId: req.params.id
+    })
+    .then(results => res.json(results));
 });
 
 module.exports = router;
