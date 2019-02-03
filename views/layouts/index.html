@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>skill.it</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="./style.css" 
+</head> 
+    
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <p class="is-size-4 navTitle"><strong>skill.it</strong></p>
+                <img src="file:///Users/jonathandavis/Downloads/iconfinder_04_1012206.svg" width="50" height="50">
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                    Home
+                </a>
+
+                <a class="navbar-item">
+                    About
+                </a>
+
+                <a class="navbar-item">
+                    More
+                </a>
+            </div>
+
+            <div class="navbar-end signAndLog">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-info">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-dark">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Body -->
+
+<body>
+
+    <!-- Search Header -->
+
+    <!-- Searchbar -->
+    <div class="level-item searchDiv">
+        <div class="field has-addons homeSearch">
+            <p class="control is-expanded">
+                <input class="input searchText" type="text" placeholder="What would you like to learn?">
+            </p>
+            <p class="control">
+                <a class="button is-success">
+                Search
+                </a>
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Filter Section -->
+    <h2 class="is-size-4 level-item filterText">Filter by:</h2>
+
+    <div class="buttons are-medium level-item">
+        <a class="button filterButtons">Type</a>
+        <a class="button filterButtons">Level</a>
+        <a class="button filterButtons">Shared Interests</a>
+    </div>
+
+    <!-- User Container -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Example User #1 -->
+            <div class="box is-shadow">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-64x64">
+                            <img class="is-rounded" src="https://bulma.io/images/placeholders/64x64.png">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="content userHeader">
+                            <p>
+                                <strong class="userName">Mac Hollister</strong>
+                                <medium class="userEmail">| </medium>
+                                <medium class="userEmail">coolmathguy@uw.edu</medium>
+                                <medium>
+                                    <a>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-envelope emailContact"></i>
+                                        </span>
+                                    </a>
+                                </medium>
+                                <br>
+                                <medium class="userInfo">Amateur | Beginner, Advanced</medium>
+                                <br>
+                                <br>
+                                Lorem ipsum dolor sit amet, math math blah blah, consectetur adipiscing elit.
+                                <br>
+                                <br>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <!-- Teaching/Learning -->
+                <div class="teaching">
+                    <h6 class="is-size-6">Teaches:</h6>
+                        <div class="buttons are-small">
+                            <a class="button">Salsa</a>
+                            <a class="button">Math</a>
+                            <a class="button">Coding</a>
+                            <a class="button">Scuba Diving</a>
+                        </div>
+                </div>
+                <br>
+                <div class="learning">
+                    <h6 class="is-size-6">Learning:</h6>
+                    <div class="buttons are-small">
+                        <a class="button">Yoga</a>
+                        <a class="button">Embroidery</a>
+                        <a class="button">Cycling</a>
+                        <a class="button">Cello</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End User #1 -->
+
+            <!-- Ex. User #2 -->
+            <div class="box is-shadow">
+                    <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/64x64.png">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content userHeader">
+                                <p>
+                                    <strong class="userName">Candice Cupcake</strong>
+                                    <medium class="userEmail">| </medium>
+                                    <medium class="userEmail">confectioner@bakery.com</medium>
+                                    <medium>
+                                        <a>
+                                            <span class="icon is-small">
+                                                <i class="fas fa-envelope emailContact"></i>
+                                            </span>
+                                        </a>
+                                    </medium>
+                                    <br>
+                                    <medium class="userInfo">Professional | Beginner, Intermediate</medium>
+                                    <br>
+                                    <br>
+                                    Lorem ipsum dolor sit amet, cakes and cups blah blah, consectetur adipiscing elit.
+                                    <br>
+                                    <br>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Teaching/Learning -->
+                    <div class="teaching">
+                        <h6 class="is-size-6">Teaches:</h6>
+                            <div class="buttons are-small">
+                                <a class="button">Baking</a>
+                                <a class="button">Cooking</a>
+                                <a class="button">Spanish</a>
+                                <a class="button">Pilates</a>
+                            </div>
+                    </div>
+                    <br>
+                    <div class="learning">
+                        <h6 class="is-size-6">Learning:</h6>
+                        <div class="buttons are-small">
+                            <a class="button">Yoga</a>
+                            <a class="button">Embroidery</a>
+                            <a class="button">Kickboxing</a>
+                            <a class="button">Cello</a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End User #2 -->
+
+        </div>
+    </section>
+
+
+</body>
+
+</html>
