@@ -37,7 +37,8 @@ router.post("/api/users", (req, res) => {
     knex("user")
     .insert(userData)
     .then(results => {
-        res.status(201).json({ id: results[0], ...userData });
+        userData.id = results[0];
+        res.status(201).json(userData);
     })
     .catch(error => {
         console.error(error);
