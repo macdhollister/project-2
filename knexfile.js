@@ -1,10 +1,12 @@
+require("dotenv").config();
+
 module.exports = {
   development: {
     client: "mysql",
     connection: {
       database: "skillit",
       user: "root",
-      password: ""
+      password: process.env.PASSWORD
     },
     pool: {
       min: 2,
