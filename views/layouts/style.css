@@ -1,0 +1,52 @@
+.userName, .userEmail {
+    margin-right: 5px;
+}
+
+.userInfo {
+    font-size: 10.5pt;
+}
+
+.userEmail {
+    font-size: 11pt;
+}
+
+.userHeader {
+    margin-left: 10px;
+}
+
+.searchButton {
+    width: 225px;
+    font-weight: bold;
+}
+
+.navTitle {
+    margin-left: 20px;
+}
+
+.signAndLog {
+    margin-right: 25px;
+}
+
+.searchDiv {
+    margin-top: 55px;
+    margin-bottom: 30px;
+}
+
+.homeSearch {
+    width: 450px;
+}
+
+.searchText {
+    font-weight: bold;
+    text-align: center;
+}
+
+.filterText {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.filterButtons {
+    margin-left: 30px;
+    margin-right: 30px;
+}
