@@ -57,7 +57,9 @@
     text-transform: uppercase;
     text-rendering: optimizeLegibility;
     letter-spacing: .05em;
-    text-shadow: 
-        4px 4px 0px #727272, 
-        7px 7px 0px rgba(0, 0, 0, 0.2);
+    text-shadow: 4px 4px 0px #727272, 7px 7px 0px rgba(0, 0, 0, 0.2);
+}
+
+.footerDiv {
+    height: 0px;
 }

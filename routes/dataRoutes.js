@@ -65,25 +65,6 @@ router.get("/api/users/:id", (req, res) => {
         });
 });
 
-// create new user
-router.post("/api/users", (req, res) => {
-    const userData = {
-        username: req.body.username,
-        email: req.body.email,
-        description: req.body.description
-    };
-    knex("user")
-        .insert(userData)
-        .then(results => {
-            userData.id = results[0];
-            res.status(201).json(userData);
-        })
-        .catch(error => {
-            console.error(error);
-            res.status(400).end();
-        });
-});
-
 /*
     Skill-related Routes
 */
