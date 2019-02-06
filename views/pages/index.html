@@ -7,61 +7,57 @@
     <title>skill.it</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-<<<<<<< HEAD:views/pages/index.html
-    <link rel="stylesheet" href="./style.css"> 
-=======
-    <link rel="stylesheet" href="../../public/styles/style.css">
->>>>>>> master:views/pages/index.html
-</head> 
-    
-    
-    <!-- Navigation Bar -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<!-- Navigation Bar -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item">
+            <p class="is-size-4 navTitle"><strong>skill.it</strong></p>
+            <img src="../../public/assets/images/skillet.svg" width="50" height="50">
+        </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
             <a class="navbar-item">
-                <p class="is-size-4 navTitle"><strong>skill.it</strong></p>
-                <img src="../../public/assets/images/skillet.svg" width="50" height="50">
+                Home
             </a>
 
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+            <a class="navbar-item">
+                About
+            </a>
+
+            <a class="navbar-item">
+                More
             </a>
         </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Home
-                </a>
-
-                <a class="navbar-item">
-                    About
-                </a>
-
-                <a class="navbar-item">
-                    More
-                </a>
-            </div>
-
-            <div class="navbar-end signAndLog">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-info">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-dark">
-                            Log in
-                        </a>
-                    </div>
+        <div class="navbar-end signAndLog">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-info">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-dark">
+                        Log in
+                    </a>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
 
-    <!-- Body -->
+<!-- Body -->
 
 <body>
 
@@ -75,7 +71,7 @@
             </p>
             <p class="control">
                 <a class="button is-success">
-                Search
+                    Search
                 </a>
             </p>
         </div>
@@ -113,8 +109,10 @@
                                     <a>
                                         <span class="icon is-small">
                                             <i class="fas fa-envelope emailContact"></i>
+                                            
                                         </span>
                                     </a>
+                                    <a class="button is-small">Small</a>
                                 </medium>
                                 <br>
                                 <medium class="userInfo">Amateur | Beginner, Advanced</medium>
@@ -133,12 +131,12 @@
                 <!-- Teaching/Learning -->
                 <div class="teaching">
                     <h6 class="is-size-6">Teaches:</h6>
-                        <div class="buttons are-small">
-                            <a class="button">Salsa</a>
-                            <a class="button">Math</a>
-                            <a class="button">Coding</a>
-                            <a class="button">Scuba Diving</a>
-                        </div>
+                    <div class="buttons are-small">
+                        <a class="button">Salsa</a>
+                        <a class="button">Math</a>
+                        <a class="button">Coding</a>
+                        <a class="button">Scuba Diving</a>
+                    </div>
                 </div>
                 <br>
                 <div class="learning">
@@ -156,71 +154,71 @@
 
             <!-- Ex. User #2 -->
             <div class="box is-shadow">
-                    <article class="media">
-                        <div class="media-left">
-                            <figure class="image is-64x64">
-                                <img class="is-rounded" src="https://bulma.io/images/placeholders/64x64.png">
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <div class="content userHeader">
-                                <p>
-                                    <strong class="userName">Candice Cupcake</strong>
-                                    <medium class="userEmail">| </medium>
-                                    <medium class="userEmail">confectioner@bakery.com</medium>
-                                    <medium>
-                                        <a>
-                                            <span class="icon is-small">
-                                                <i class="fas fa-envelope emailContact"></i>
-                                            </span>
-                                        </a>
-                                    </medium>
-                                    <br>
-                                    <medium class="userInfo">Professional | Beginner, Intermediate</medium>
-                                    <br>
-                                    <br>
-                                    Lorem ipsum dolor sit amet, cakes and cups blah blah, consectetur adipiscing elit.
-                                    <br>
-                                    <br>
-                                </p>
-                            </div>
-
-                        </div>
-
-                    </article>
-
-                    <!-- Teaching/Learning -->
-                    <div class="teaching">
-                        <h6 class="is-size-6">Teaches:</h6>
-                            <div class="buttons are-small">
-                                <a class="button">Baking</a>
-                                <a class="button">Cooking</a>
-                                <a class="button">Spanish</a>
-                                <a class="button">Pilates</a>
-                            </div>
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-64x64">
+                            <img class="is-rounded" src="https://bulma.io/images/placeholders/64x64.png">
+                        </figure>
                     </div>
-                    <br>
-                    <div class="learning">
-                        <h6 class="is-size-6">Learning:</h6>
-                        <div class="buttons are-small">
-                            <a class="button">Yoga</a>
-                            <a class="button">Embroidery</a>
-                            <a class="button">Kickboxing</a>
-                            <a class="button">Cello</a>
+                    <div class="media-content">
+                        <div class="content userHeader">
+                            <p>
+                                <strong class="userName">Candice Cupcake</strong>
+                                <medium class="userEmail">| </medium>
+                                <medium class="userEmail">confectioner@bakery.com</medium>
+                                <medium>
+                                    <a>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-envelope emailContact"></i>
+                                        </span>
+                                    </a>
+                                </medium>
+                                <br>
+                                <medium class="userInfo">Professional | Beginner, Intermediate</medium>
+                                <br>
+                                <br>
+                                Lorem ipsum dolor sit amet, cakes and cups blah blah, consectetur adipiscing elit.
+                                <br>
+                                <br>
+                            </p>
                         </div>
+
                     </div>
 
+                </article>
+
+                <!-- Teaching/Learning -->
+                <div class="teaching">
+                    <h6 class="is-size-6">Teaches:</h6>
+                    <div class="buttons are-small">
+                        <a class="button">Baking</a>
+                        <a class="button">Cooking</a>
+                        <a class="button">Spanish</a>
+                        <a class="button">Pilates</a>
+                    </div>
                 </div>
-                <!-- End User #2 -->
+                <br>
+                <div class="learning">
+                    <h6 class="is-size-6">Learning:</h6>
+                    <div class="buttons are-small">
+                        <a class="button">Yoga</a>
+                        <a class="button">Embroidery</a>
+                        <a class="button">Kickboxing</a>
+                        <a class="button">Cello</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End User #2 -->
 
         </div>
     </section>
 
-     <!-- Footer -->
-     <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="has-text-centered footerDiv">
             <p>
-            <strong>skill.it</strong> ©2019 by <p>Mac Hollister, Neri Stec, Truc Ly Le, and Jonathan Davis.</p>
+                <strong>skill.it</strong> ©2019 by <p>Mac Hollister, Neri Stec, Truc Ly Le, and Jonathan Davis.</p>
             </p>
         </div>
     </footer>

@@ -11,7 +11,7 @@ $(function () {
 
         $.ajax({
             method: "GET",
-            url: "/api/skills/" + skill,
+            url: "/display/api/skills/" + skill,
         }).then(function (res) {
             console.log(res);
         });

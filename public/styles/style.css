@@ -51,19 +51,13 @@
     margin-right: 30px;
 }
 
-<<<<<<< HEAD:public/styles/style.css
-#main-title {
+.title {
     font-size: 100px;
     text-align: left;
     text-transform: uppercase;
     text-rendering: optimizeLegibility;
     letter-spacing: .05em;
     text-shadow: 
-      4px 4px 0px #4e4d4e, 
-      7px 7px 0px rgba(0, 0, 0, 0.2);
+        4px 4px 0px #727272, 
+        7px 7px 0px rgba(0, 0, 0, 0.2);
 }
-=======
-.footerDiv {
-    height: 0px;
-}
->>>>>>> master:public/styles/style.css
