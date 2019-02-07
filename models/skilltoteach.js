@@ -16,17 +16,17 @@ module.exports = (sequelize, DataTypes) => {
         freezeTableName: true
     });
 
-    // SkillToTeach.associate = function (models) {
-    //     SkillToTeach.belongsTo(models.User, {
-    //         foreignKey: "userId",
-    //         targetKey: "id"
-    //     });
+    SkillToTeach.associate = function (models) {
+        SkillToTeach.belongsTo(models.User, {
+            foreignKey: "userId",
+            targetKey: "id"
+        });
 
-    //     SkillToTeach.belongsTo(models.Skill, {
-    //         foreignKey: "skillId",
-    //         targetKey: "id"
-    //     });
-    // };
+        SkillToTeach.belongsTo(models.Skill, {
+            foreignKey: "skillId",
+            targetKey: "id"
+        });
+    };
 
     return SkillToTeach;
 };

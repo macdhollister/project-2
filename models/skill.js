@@ -11,19 +11,19 @@ module.exports = (sequelize, DataTypes) => {
         freezeTableName: true
     });
 
-    // Skill.associate = function (models) {
-    //     Skill.hasMany(models.SkillToLearn, {
-    //         onDelete: "cascade",
-    //         foreignKey: "id",
-    //         sourceKey: "skillId"
-    //     });
+    Skill.associate = function (models) {
+        Skill.hasMany(models.SkillToLearn, {
+            onDelete: "cascade",
+            foreignKey: "skillId",
+            sourceKey: "id"
+        });
 
-    //     Skill.hasMany(models.SkillToTeach, {
-    //         onDelete: "cascade",
-    //         foreignKey: "id",
-    //         sourceKey: "skillId"
-    //     });
-    // };
+        Skill.hasMany(models.SkillToTeach, {
+            onDelete: "cascade",
+            foreignKey: "skillId",
+            sourceKey: "id"
+        });
+    };
 
     return Skill;
 };
