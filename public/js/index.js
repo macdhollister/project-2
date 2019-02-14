@@ -61,6 +61,7 @@ $(() => {
         }
     });
 
+
     /* Render users to the page */
     function showUsers() {
         $.ajax({
@@ -82,9 +83,9 @@ $(() => {
                                     <strong class="userName">
                                         ${user.username}</strong>
                                     <medium>
-                                        <a href="#">
+                                        <a href="/email"">
                                             <span class="icon is-small">
-                                                <i class="fas fa-envelope emailContact name="${user.email}"></i>
+                                                <i class="fas fa-envelope emailContact name="${user.email}" ></i>
                                             </span>
                                         </a>
                                         <a href="#" data-id="${user.id}>

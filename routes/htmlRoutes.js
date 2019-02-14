@@ -32,7 +32,7 @@ router.get("/contact", (req, res) => {
     res.render(dir("contact.ejs"));
 });
 
-// About skill.it
+// Email skill.it user
 router.get("/email", (req, res) => {
     res.render(dir("email.ejs"));
 });
