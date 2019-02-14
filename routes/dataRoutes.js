@@ -100,15 +100,15 @@ router.get("/api/skills/:id", (req, res) => {
         .then(results => res.json(results));
 });
 
+// 
 router.post("/send", (req, res) => {
     const output = `
     <p>You have a new contact request</p>
     <h3>Contact Details</h3>
     <ul>
-        <li> Name:  ${req.body.name}</li>
         <li> Username:  ${req.body.username}</li>
         <li> Email:  ${req.body.email}</li>
-        <li> Message:  ${req.body.message}</li>
+        <li> Subject:  ${req.body.subject}</li>
     </ul>
     <h3>Message</h3>
     <p>${req.body.message}</p>
@@ -145,9 +145,8 @@ router.post("/send", (req, res) => {
         // Preview only available when sending through an Ethereal account
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-        
+        res.render(path.join(__dirname, "../public/views/pages/contact.ejs"));
     });
-    res.render(path.join(__dirname, "../public/views/pages/index.ejs"));
 
 });
 
