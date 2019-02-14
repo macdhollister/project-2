@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const passport = require("../config/passport");
+const passport = require("passport");
 const bcrypt = require("bcryptjs");
 
 // User Model
@@ -8,7 +8,7 @@ const User = require("../models").User;
 
 // route for signing up
 router.post("/register", (req, res) => {
-    const { username, email, password, password2, agreeBox} = req.body;
+    const { username, email, password, password2, description, agreeBox} = req.body;
     const errors = [];
 
     // Check required fields
@@ -35,6 +35,7 @@ router.post("/register", (req, res) => {
             errors,
             username,
             email,
+            description
         });
     } else {
         // Validation Passed
@@ -50,12 +51,14 @@ router.post("/register", (req, res) => {
                     errors,
                     username,
                     email,
+                    description
                 });
             } else {
                 User.create({
                     username: username,
                     email: email,
-                    password: bcrypt.hashSync(password, bcrypt.genSaltSync(10))
+                    password: bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
+                    description: description
                 }).then(() => {
                     req.flash("successMsg", "You are now registered and can log in");
                     res.redirect("/login");

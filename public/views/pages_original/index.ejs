@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ../partials/head %>
+
+    <body class="container Site">
+        <header>
+            <%- include ../partials/header %>
+        </header>
+        <main class="Site-content">
+            <div class="level-item searchDiv">
+                <div class="field has-addons homeSearch">
+                    <p class="control is-expanded">
+                        <input class="input searchText" type="text" id="skillSearch"
+                            placeholder="What would you like to learn?">
+                    </p>
+                    <form class="control create-form">
+                        <a class="button is-success" type="submit">
+                            Search
+                        </a>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Filter Section -->
+            <h2 class="is-size-4 level-item filterText">Filter by:</h2>
+
+            <div class="buttons are-medium level-item">
+                <a class="button filterButtons">Type</a>
+                <a class="button filterButtons">Level</a>
+                <a class="button filterButtons">Shared Interests</a>
+            </div>
+
+            <!-- User Container -->
+            <section class="section">
+                <div class="container" id="users"></div>
+            </section>
+        </main>
+
+        <%- include ../partials/footer %>
+
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </body>
+</html>

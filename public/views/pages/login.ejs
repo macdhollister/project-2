@@ -1,27 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-    <%- include ../partials/head %>
-        <header>
-            <%- include ../partials/header %>
-        </header>
+<main class="Site-content">
 
-<body class="container Site">
-    <main class="Site-content">
+    <!-- Modal -->
+    <div class="modal is-active">
+        <div class="modal-background"></div>
+        <div class="modal-content">
 
-        <!-- Modal -->
-        <div class="modal is-active">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-                       
-                    <!-- Content -->
-                    
-                <div class="box signUp">
+            <!-- Content -->
+
+            <div class="box signUp">
+                <h1 class="is-size-4 has-text-weight-bold has-text-info">Log in</h1>
+                <% include ../partials/messages %>
+                <p>—————————————————————————————————————————————</p>
+
+                <form action="/login" method="POST">
                     <div class="field">
-                        <h1 class="is-size-4 has-text-weight-bold has-text-info">Log in</h1>
-                        <p>—————————————————————————————————————————————</p>
                         <label class="label">Username</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" id="usernameInput" type="text" placeholder="Text input">
+                            <input class="input is-success" name="username" type="text" placeholder="Username">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -30,11 +25,11 @@
                             </span>
                         </div>
                     </div>
-        
+
                     <div class="field">
                         <label class="label">Password</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" id="passwordInput" type="password" placeholder="Text input">
+                            <input class="input is-success" name="password" type="password" placeholder="Password">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-key"></i>
                             </span>
@@ -43,25 +38,21 @@
                             </span>
                         </div>
                     </div>
-        
+
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-link " id="loginSubmit">Submit</button>
+                            <button class="button is-link " id="loginSubmit" type="submit">Submit</button>
                         </div>
                         <div class="control">
                             <button class="button is-text cancelButton">Cancel</button>
                         </div>
                     </div>
-                </div>
-                    
-                <!-- End Content -->
-
-                </div>
+                </form>
             </div>
-            <!-- End Modal -->
+            <!-- End Content -->
 
-    </main>
+        </div>
+    </div>
+    <!-- End Modal -->
 
-    <%- include ../partials/footer %>
-</body>
-</html>
+</main>

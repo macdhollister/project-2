@@ -17,7 +17,7 @@ const db = require("./models");
 // EJS
 app.use(expressLayouts);
 app.set("view engine", "ejs");
-app.set("views", "./public/views/pages_testing");
+app.set("views", "./public/views/pages");
 
 // Bodyparsing
 app.use(express.urlencoded({ extended: false }));

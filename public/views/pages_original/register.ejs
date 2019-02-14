@@ -1,22 +1,29 @@
-<main class="Site-content">
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ../partials/head %>
 
-    <!-- Modal -->
-    <div class="modal is-active">
-        <div class="modal-background"></div>
-        <div class="modal-content">
+    <header>
+        <%- include ../partials/header %>
+    </header>
 
-            <!-- Content -->
+<body class="container Site">
 
-            <div class="box createUser">
-                <h1 class="is-size-4 has-text-weight-bold has-text-info">Sign up</h1>
-                <% include ../partials/messages %>
-                <p>—————————————————————————————————————————————</p>
+    <main class="Site-content">
 
-                <form action="/register" method="POST">
+        <!-- Modal -->
+        <div class="modal is-active">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+
+                <!-- Content -->
+
+                <div class="box createUser">
                     <div class="field">
+                        <h1 class="is-size-4 has-text-weight-bold has-text-info">Sign up</h1>
+                        <p>—————————————————————————————————————————————</p>
                         <label class="label">Username</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" name="username" type="text" placeholder="Username" required>
+                            <input class="input is-success" id="usernameInput" type="text" placeholder="Text Input" required>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -29,7 +36,7 @@
                     <div class="field">
                         <label class="label">Email</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" name="email" type="email" placeholder="Email" required>
+                            <input class="input is-success" id="emailInput" type="email" placeholder="Text Input" required>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
@@ -43,21 +50,7 @@
                     <div class="field">
                         <label class="label">Password</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" name="password" type="password" required>
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-key"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
-                        </div>
-                        <p class="help is-success"></p>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Confirm Password</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" name="password2" type="password" required>
+                            <input class="input is-success" id="passwordInput" type="password" placeholder="Text Input" required>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-key"></i>
                             </span>
@@ -106,7 +99,7 @@
                     <div class="field">
                         <div class="control">
                             <label class="checkbox">
-                                <input name="agreeBox" type="checkbox">
+                                <input type="checkbox">
                                 I agree to the <a href="#">terms and conditions</a>
                             </label>
                         </div>
@@ -114,17 +107,20 @@
 
                     <div class="field is-grouped">
                         <div class="control">
-                            <button class="button is-link" id="signupSubmit" type="button">Submit</button>
+                            <button class="button is-link" id="signupSubmit">Submit</button>
                         </div>
                         <div class="control">
                             <button class="button is-text cancelButton">Cancel</button>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
+        
+        <!-- End Modal -->
+        
+    </main>
 
-    <!-- End Modal -->
-
-</main>
+    <%- include ../partials/footer %>
+</body>
+</html>
