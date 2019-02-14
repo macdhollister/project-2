@@ -84,7 +84,7 @@ $(() => {
                                     <medium>
                                         <a href="#">
                                             <span class="icon is-small">
-                                                <i class="fas fa-envelope emailContact"></i>
+                                                <i class="fas fa-envelope emailContact name="${user.email}"></i>
                                             </span>
                                         </a>
                                         <a href="#" data-id="${user.id}>
