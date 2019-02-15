@@ -4,15 +4,15 @@ const passport = require("passport");
 const bcrypt = require("bcryptjs");
 
 // User Model
-const User = require("../models").User;
+const db = require("../models");
 
 // route for signing up
 router.post("/register", (req, res) => {
-    const { username, email, password, password2, description, agreeBox} = req.body;
+    const { username, email, password, password2, toTeach, toLearn, description, agreeBox} = req.body;
     const errors = [];
 
     // Check required fields
-    if (!(username && email && password && password2)) {
+    if (!(username && email && password && password2 && toTeach && toLearn)) {
         errors.push({msg: "Please fill in all fields"});
     }
 
@@ -39,7 +39,7 @@ router.post("/register", (req, res) => {
         });
     } else {
         // Validation Passed
-        User.findOne({
+        db.User.findOne({
             where: {
                 username: username
             }
@@ -54,12 +54,43 @@ router.post("/register", (req, res) => {
                     description
                 });
             } else {
-                User.create({
+                db.User.create({
                     username: username,
                     email: email,
                     password: bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
                     description: description
-                }).then(() => {
+                }).then(newUser => {
+
+                    // Adding the toLearn skill
+                    db.Skill.findOne({
+                        where: {
+                            name: toLearn
+                        }
+                    }).then(skill => {
+                        //   id at skill.dataValues.id
+                        // name at skill.dataValues.name
+
+                        // handler for a new skill
+                        // if (!skill) {
+                        //     // create new skill
+                        // }
+                        db.SkillToLearn.create({
+                            userId: newUser.dataValues.id,
+                            skillId: skill.dataValues.id
+                        });
+                    });
+
+                    // Adding the toTeach skill
+                    db.Skill.findOne({
+                        where: {
+                            name: toTeach
+                        }
+                    }).then(skill => {
+                        db.SkillToTeach.create({
+                            userId: newUser.dataValues.id,
+                            skillId: skill.dataValues.id
+                        });
+                    });
                     req.flash("successMsg", "You are now registered and can log in");
                     res.redirect("/login");
                 });

@@ -30,6 +30,59 @@
 
     <!-- User Container -->
     <section class="section">
-        <div class="container" id="users"></div>
+        <div class="container" id="userDiv">
+            <% for(let i = users.length - 1; i >= 0; i--) { %>
+            <div class="box is-shadow">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-64x64">
+                            <img class="is-rounded" src="https://bulma.io/images/placeholders/64x64.png">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="content userHeader">
+                            <p>
+                                <strong class="userName"><%= users[i].username %></strong>
+                                <medium>
+                                    <a href="/email">
+                                            <span class="icon is-small">
+                                        <i class="fas fa-envelope emailContact" name="<%= users[i].email %>"></i>
+                                        </span>
+                                    </a>
+                                    <a href="#" data-id="<%= users[i].id %>">
+                                            <span class="icon is-small">
+                                        <i class="fas fa-comments chatContact"></i>
+                                        </span>
+                                    </a>
+                                </medium>
+                                <br>
+                                <%= users[i].description %>
+                                <br><br><br>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                <div class="teaching">
+                    <h6 class="is-size-6">Teaching</h6>
+                    <div class="buttons are-small">
+                        <% users[i].skillsTeaching.forEach(skill => { %>
+                            <% skill = skill.dataValues.skillId %>
+                            <a class="button" data-skillId="<%= skill %>"><%= skills[skill-1].dataValues.name %></a>
+                        <% }); %>
+                    </div>
+                </div>
+                <br>
+                <div class="learning">
+                    <h6 class="is-size-6">Learning</h6>
+                    <div class="buttons are-small">
+                        <% users[i].skillsLearning.forEach(skill => { %>
+                            <% skill = skill.dataValues.skillId %>
+                            <a class="button" data-skillId="<%= skill %>"><%= skills[skill-1].dataValues.name %></a>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
     </section>
 </main>

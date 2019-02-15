@@ -67,7 +67,7 @@
     margin-top: 30px;
 }
 
-.signUp {
+.signUp, .email {
     width: 750px;
     margin: 0 auto;
     margin-top: 50px;

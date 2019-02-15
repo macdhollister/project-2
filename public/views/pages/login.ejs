@@ -1,58 +1,50 @@
 <main class="Site-content">
 
-    <!-- Modal -->
-    <div class="modal is-active">
-        <div class="modal-background"></div>
-        <div class="modal-content">
+    <!-- Content -->
 
-            <!-- Content -->
+    <div class="box signUp">
+        <h1 class="is-size-4 has-text-weight-bold has-text-info">Log in</h1>
+        <% include ../partials/messages %>
+        <p>—————————————————————————————————————————————</p>
 
-            <div class="box signUp">
-                <h1 class="is-size-4 has-text-weight-bold has-text-info">Log in</h1>
-                <% include ../partials/messages %>
-                <p>—————————————————————————————————————————————</p>
-
-                <form action="/login" method="POST">
-                    <div class="field">
-                        <label class="label">Username</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" name="username" type="text" placeholder="Username">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Password</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" name="password" type="password" placeholder="Password">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-key"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-link " id="loginSubmit" type="submit">Submit</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-text cancelButton">Cancel</button>
-                        </div>
-                    </div>
-                </form>
+        <form action="/login" method="POST">
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" name="username" type="text" placeholder="Username">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </div>
             </div>
-            <!-- End Content -->
 
-        </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" name="password" type="password" placeholder="Password">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-key"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link " id="loginSubmit" type="submit">Submit</button>
+                </div>
+                <div class="control">
+                    <a href="/"><button type="button" class="button is-text cancelButton">Cancel</button></a>
+                </div>
+            </div>
+        </form>
     </div>
-    <!-- End Modal -->
+    
+    <!-- End Content -->
 
 </main>

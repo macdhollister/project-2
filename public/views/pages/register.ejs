@@ -1,130 +1,121 @@
 <main class="Site-content">
 
-    <!-- Modal -->
-    <div class="modal is-active">
-        <div class="modal-background"></div>
-        <div class="modal-content">
+    <div class="box createUser">
+        <h1 class="is-size-4 has-text-weight-bold has-text-info">Sign up</h1>
+        <% include ../partials/messages %>
+        <p>—————————————————————————————————————————————</p>
 
-            <!-- Content -->
-
-            <div class="box createUser">
-                <h1 class="is-size-4 has-text-weight-bold has-text-info">Sign up</h1>
-                <% include ../partials/messages %>
-                <p>—————————————————————————————————————————————</p>
-
-                <form action="/register" method="POST">
-                    <div class="field">
-                        <label class="label">Username</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" name="username" type="text" placeholder="Username" required>
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" name="email" type="email" placeholder="Email" required>
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
-                        </div>
-                        <p class="help is-success"></p>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Password</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" name="password" type="password" required>
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-key"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
-                        </div>
-                        <p class="help is-success"></p>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Confirm Password</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-success" name="password2" type="password" required>
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-key"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
-                        </div>
-                        <p class="help is-success"></p>
-                    </div>
-
-                    <div class="box dropdowns">
-                        <div class="field">
-                            <label class="label">What I teach</label>
-                            <div class="control">
-                                <div class="select">
-                                    <select>
-                                        <option>Painting</option>
-                                        <option>Yoga</option>
-                                        <option>Chemisty</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label class="label">What I want to learn</label>
-                            <div class="control">
-                                <div class="select">
-                                    <select>
-                                        <option>Cooking</option>
-                                        <option>Sailing</option>
-                                        <option>Game designn</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">About Me</label>
-                        <div class="control">
-                            <textarea name="description" class="textarea" id="aboutMe" placeholder="Textarea"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <div class="control">
-                            <label class="checkbox">
-                                <input name="agreeBox" type="checkbox">
-                                I agree to the <a href="#">terms and conditions</a>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-link" id="signupSubmit" type="submit">Submit</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-text cancelButton">Cancel</button>
-                        </div>
-                    </div>
-                </form>
+        <form action="/register" method="POST">
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" name="username" type="text" placeholder="Username" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <!-- End Modal -->
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" name="email" type="email" placeholder="Email" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </div>
+                <p class="help is-success"></p>
+            </div>
+
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" name="password" type="password" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-key"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </div>
+                <p class="help is-success"></p>
+            </div>
+
+            <div class="field">
+                <label class="label">Confirm Password</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" name="password2" type="password" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-key"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </div>
+                <p class="help is-success"></p>
+            </div>
+
+            <div class="box dropdowns">
+                <div class="field">
+                    <label class="label">What I teach</label>
+                    <div class="control">
+                        <div class="select">
+                            <select name="toTeach">
+                                <% for(let i = 0; i < skills.length; i++) { %>
+                                <option skillid="<%= skills[i].dataValues.id %>"><%= skills[i].dataValues.name %>
+                                </option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">What I want to learn</label>
+                    <div class="control">
+                        <div class="select">
+                            <select name="toLearn">
+                                <% for(let i = 0; i < skills.length; i++) { %>
+                                <option skillid="<%= skills[i].dataValues.id %>"><%= skills[i].dataValues.name %>
+                                </option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">About Me</label>
+                <div class="control">
+                    <textarea name="description" class="textarea" id="aboutMe" placeholder="Textarea"></textarea>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <label class="checkbox">
+                        <input name="agreeBox" type="checkbox">
+                        I agree to the <a href="#">terms and conditions</a>
+                    </label>
+                </div>
+            </div>
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link" id="signupSubmit" type="submit">Submit</button>
+                </div>
+                <div class="control">
+                    <a href="/"><button type="button" class="button is-text cancelButton">Cancel</button></a>
+                </div>
+            </div>
+        </form>
+    </div>
 
 </main>
