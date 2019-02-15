@@ -145,7 +145,8 @@ router.post("/send", (req, res) => {
         // Preview only available when sending through an Ethereal account
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-        res.render(path.join(__dirname, "../public/views/pages/contact.ejs"));
+        req.flash("successMsg", "Your email has been sent!");
+        res.redirect("/");
     });
 
 });
