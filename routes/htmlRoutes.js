@@ -47,7 +47,7 @@ router.get("/", (req, res) => {
     });
 });
 
-// Renders Home Page with results from search
+// Home Page (with results from search)
 router.post("/search", (req, res) => {
     console.log(req.body.skillName);
     db.Skill.findOne({
@@ -111,17 +111,21 @@ router.post("/search", (req, res) => {
 
 // Send login page
 router.get("/login", (req, res) => {
-
-    // UPDATE THIS LATER ---------- Want to redirect users who are logged in
-
-    // if (req.user) {
-    //     res.redirect("/");
-    // }
+    // User already logged in
+    if (req.user) {
+        // add a flash message in here -- already logged in
+        res.redirect("/");
+    }
     res.render(dir("login.ejs"));
 });
 
 // Register a new user
 router.get("/register", (req, res) => {
+    // User already logged in
+    if (req.user) {
+        // add a flash message in here -- already logged in
+        res.redirect("/");
+    }
     db.Skill.findAll({
         attributes: ["id", "name"]
     }).then(skills => {
@@ -144,6 +148,12 @@ router.get("/email", (req, res) => {
 // About skill.it
 router.get("/about", (req, res) => {
     res.render(dir("about.ejs"));
+});
+
+router.get("/profile", isAuthenticated, (req, res) => {
+    res.render(dir("profile.ejs"), {
+        user: req.user
+    });
 });
 
 // Test route for ensuring Authentication
