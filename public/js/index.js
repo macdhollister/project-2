@@ -5,19 +5,6 @@ $(() => {
         $(this).parent().remove();
     });
 
-    $(".searchDiv").on("click", ".button", (event) => {
-        event.preventDefault();
-
-        const skill = $("#skillSearch").val().trim();
-
-        $.ajax({
-            method: "GET",
-            url: "/api/skills/" + skill,
-        }).then((res) => {
-            console.log(res);
-        });
-    });
-
     $(".burger").on("click", () => {
         console.log("clicked");
         $(".navbar-burger").toggleClass("is-active");

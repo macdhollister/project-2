@@ -47,6 +47,68 @@ router.get("/", (req, res) => {
     });
 });
 
+// Renders Home Page with results from search
+router.post("/search", (req, res) => {
+    console.log(req.body.skillName);
+    db.Skill.findOne({
+        attributes: ["id"],
+        where: {
+            name: req.body.skillName
+            // name: "music"
+        }
+    }).then(skillRes => {
+        // skill id in skillRes.dataValues.id
+        db.SkillToTeach.findAll({
+            where: {
+                skillId: skillRes.dataValues.id
+            }
+        }).then(userIdRes => {
+            for (let i = 0; i < userIdRes.length; i++) {
+                userIdRes[i] = userIdRes[i].dataValues.userId;
+            }
+
+            db.User.findAll({
+                attributes: ["id", "username", "email", "description", "createdAt", "updatedAt"],
+                where: {
+                    id: userIdRes
+                },
+                include: [
+                    {
+                        model: db.SkillToLearn,
+                        as: "skillsLearning",
+                        attributes: ["skillId", "createdAt", "updatedAt"]
+                    },
+                    {
+                        model: db.SkillToTeach,
+                        as: "skillsTeaching",
+                        attributes: ["skillId", "createdAt", "updatedAt"]
+                    }
+                ]
+            }).then(userResults => {
+                db.Skill.findAll({
+                    include: [
+                        {
+                            model: db.SkillToLearn,
+                            as: "usersLearning",
+                            attributes: ["userId", "createdAt", "updatedAt"]
+                        },
+                        {
+                            model: db.SkillToTeach,
+                            as: "usersTeaching",
+                            attributes: ["userId", "createdAt", "updatedAt"]
+                        }
+                    ]
+                }).then(skillResults => {
+                    res.render(dir("index.ejs"), {
+                        users: userResults,
+                        skills: skillResults
+                    });
+                });
+            });
+        });
+    });
+});
+
 // Send login page
 router.get("/login", (req, res) => {
 

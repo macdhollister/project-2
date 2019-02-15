@@ -2,13 +2,13 @@
     <div class="level-item searchDiv">
         <div class="field has-addons homeSearch">
             <p class="control is-expanded">
-                <input class="input searchText" type="text" id="skillSearch"
+                <input name="skillName" form="searchForm" class="input searchText" type="text" id="skillSearch"
                     placeholder="What would you like to learn?">
             </p>
-            <form class="control create-form">
-                <a class="button is-success" type="submit">
-                    Search
-                </a>
+            <form id="searchForm" action="/search" method="POST" class="control create-form">
+                <div class="control">
+                    <button id="searchButton" class="button is-success" type="submit">Search</button>
+                </div>
             </form>
         </div>
     </div>
