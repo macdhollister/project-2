@@ -103,10 +103,10 @@ router.get("/api/skills/:id", (req, res) => {
 // 
 router.post("/send", (req, res) => {
     const output = `
-    <p>You have a new contact request</p>
+    <p>Someone is interested in trading skills with you!</p>
     <h3>Contact Details</h3>
     <ul>
-        <li> Username:  ${req.body.username}</li>
+        <li> Name:  ${req.body.username}</li>
         <li> Email:  ${req.body.email}</li>
         <li> Subject:  ${req.body.subject}</li>
     </ul>
@@ -132,7 +132,7 @@ router.post("/send", (req, res) => {
         from: "\"skill.it Contact\" <skill-it.com>\"", // sender address
         to: "7c407cd915-696e26@inbox.mailtrap.io", // list of receivers
         subject: "A skill.it user would like to contact you!", // Subject line
-        text: "Hello world?", // plain text body
+        text: "Hello world!", // plain text body
         html: output // html body
     };
 
@@ -145,7 +145,8 @@ router.post("/send", (req, res) => {
         // Preview only available when sending through an Ethereal account
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-        res.render(path.join(__dirname, "../public/views/pages/contact.ejs"));
+        req.flash("successMsg", "Your email has been sent!");
+        res.redirect("/");
     });
 
 });
