@@ -1,5 +1,9 @@
 # skill.it
 
+Share your skills, talents, and experience in a whole new way with skill.it.
+
+skill.it is a cashless skills exchange platform where you can teach others what you are good at and learn something you are interested in in return.
+
 ## Quick Start
 
 1. Clone the repository
@@ -43,3 +47,13 @@ To undo a migration or seeding, run the following:
 sequelize db:migrate:undo:all
 sequelize db:seed:undo:all
 ```
+
+## Contributors
+
+[Mac Hollister](https://github.com/macdhollister/)
+
+[Truc Ly Le](https://github.com/truclyle/)
+
+[Jonathan Davis](https://github.com/JonathanDavis22/)
+
+[Neri Stec](https://github.com/xoamara/)
