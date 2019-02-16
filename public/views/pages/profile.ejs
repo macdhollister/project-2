@@ -1,3 +1,57 @@
-<h1>THIS IS YOUR PROFILE</h1>
+<main class="Site-content">
 
-<h2>Welcome <%= user.dataValues.username %></h2>
+    <% include ../partials/messages %>
+
+    <!-- Hero Welcome Card -->
+
+    <section class="hero is-light">
+        <div class="hero-body">
+            <div class="container">
+                
+                <h1 class="title">
+                    Profile View
+                </h1>
+                <h2 class="subtitle">
+                    Welcome <%= user.dataValues.username %>
+                </h2>
+                <h6 class="profileFont">
+                    Email: <%= user.dataValues.email %>
+                    <br>
+                    About Me: <%= user.dataValues.description %>
+                    <br>
+                    User Since: <%= user.dataValues.createdAt %>
+                    <br>
+                    Last Updated: <%= user.dataValues.updatedAt %>
+                </h6>
+
+                <br>
+                <h6 class="profileFont">
+                        <div class="teaching">
+                            <h6 class="is-size-6">Teaching</h6>
+                            <div class="buttons are-small">
+                                <% User.dataValues.forEach(skill => { %>
+                                    <% skill = skill.dataValues.skillId %>
+                                    <a class="button" data-skillId="<%= skill %>"><%= skills[skill-1].dataValues.name %></a>
+                                <% }); %>
+                            </div>
+                        </div>
+
+                </h6>
+
+                <br>
+                <h6 class="profileFont">
+                    Update Password:
+                <br>
+                <form action="/updatePassword" method="POST">
+                    <input class="input is-rounded passInput" name="current" type="text" placeholder="Current Password">
+                    <input class="input is-rounded passInput" name="newPass" type="text" placeholder="New Password">
+                    <input class="input is-rounded passInput" name="newPassConfirm" type="text" placeholder="Confirm New Password">
+                    <button type="submit">Change Password</button>
+                </form>
+                <h6>
+
+            </div>
+        </div>
+    </section>
+
+</main>

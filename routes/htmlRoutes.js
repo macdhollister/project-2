@@ -151,8 +151,17 @@ router.get("/about", (req, res) => {
 });
 
 router.get("/profile", isAuthenticated, (req, res) => {
-    res.render(dir("profile.ejs"), {
-        user: req.user
+    db.SkillToTeach.findAll({
+        include: [
+            {
+                userId: req.user.dataValues.id
+            }
+        ]
+    }).then(skillResults => {
+        res.render(dir("profile.ejs"), {
+            user: req.user,
+            skills: skillResults
+        });
     });
 });
 
