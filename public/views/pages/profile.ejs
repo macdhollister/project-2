@@ -1,3 +1,10 @@
 <h1>THIS IS YOUR PROFILE</h1>
 
 <h2>Welcome <%= user.dataValues.username %></h2>
+<% include ../partials/messages %>
+<form action="/updatePassword" method="POST">
+    <input name="current" type="password" placeholder="current password">
+    <input name="newPass" type="password" placeholder="new password">
+    <input name="newPassConfirm" type="password" placeholder="confirm new password">
+    <button type="submit">change password</button>
+</form>
