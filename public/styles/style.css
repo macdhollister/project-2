@@ -14,6 +14,10 @@ li.sender {
     background-color: #00E5C3;
     text-align: right;
 }
+body {
+    background-image: url("../images/darkness.png");
+    background-image: repeat
+}
 
 li.receiver {
     align-self: flex-start;
@@ -36,9 +40,9 @@ li.receiver {
     margin-left: 10px;
 }
 
-.searchButton {
-    width: 225px;
+#searchButton {
     font-weight: bold;
+    border-radius: 0px 4px 4px 0px;
 }
 
 .navTitle {
@@ -122,4 +126,12 @@ letter-spacing: 1px;
 
 .skillButton {
     margin: 5px;
+}
+
+.bioBox {
+    margin-top: 10px;
+}
+
+.navbar, .cardDivs, .box, #skillSearch {
+    background-color:#F5F5F5
 }

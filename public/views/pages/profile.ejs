@@ -7,7 +7,7 @@
         <% include ../partials/messages %>
         <p>—————————————————————————————————————————————</p>
 
-        <div class="box is-clearfix">
+        <div class="box bioBox is-clearfix">
             <form action="/updateDescription" method="POST">
                 <label class="label">Update Bio</label>
                 <div class="control">
@@ -59,13 +59,13 @@
             </form>
         </div>
 
-        <div class="box is-clearfix">
+        <div class="box level is-clearfix">
             <div class="columns">
                 <div class="column">
                     <label class="label">Skills You Teach</label>
                     <% user.skillsTeaching.forEach(skill => { %>
                         <% skill = skill.dataValues.skillId %>
-                        <button class="button teachButton is-danger is-small"
+                        <button class="button teachButton is-danger is-small is-rounded"
                         data-skillId="<%= skill %>"><%= skills[skill-1].name %></button>
                     <% }) %>
                 </div>
@@ -74,7 +74,7 @@
                     <label class="label">Skills You Want To Learn</label>
                     <% user.skillsLearning.forEach(skill => { %>
                         <% skill = skill.dataValues.skillId %>
-                        <button class="button learnButton is-danger is-small"
+                        <button class="button learnButton is-danger is-small is-rounded"
                         data-skillId="<%= skill %>"><%= skills[skill-1].name %></button>
                     <% }) %>
                 </div>
