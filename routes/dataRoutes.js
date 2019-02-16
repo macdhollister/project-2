@@ -151,4 +151,21 @@ router.post("/send", (req, res) => {
 
 });
 
+router.post("/updateBio", (req, res) => {
+    const { newDescription } = req.body;
+    
+    db.User.update(
+        { description: newDescription },
+        {
+            fields: ["description"],
+            where: {
+                id: req.user.dataValues.id
+            }
+        }
+    ).then(() => {
+        req.flash("successMsg", "Description successfully updated");
+        res.redirect("/profile");
+    });
+});
+
 module.exports = router;
