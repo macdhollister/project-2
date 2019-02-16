@@ -11,12 +11,15 @@
             <div class="field">
                 <label class="label">Username</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input" name="username" type="text" placeholder="Username" required>
+                    <input 
+                        class="input" 
+                        name="username" 
+                        type="text" 
+                        placeholder="Username"
+                        value="<%= typeof username != 'undefined' ? username : '' %>"
+                        required>
                     <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
                     </span>
                 </div>
             </div>
@@ -24,79 +27,83 @@
             <div class="field">
                 <label class="label">Email</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input" name="email" type="email" placeholder="Email" required>
+                    <input 
+                        class="input" 
+                        name="email" 
+                        type="email" 
+                        placeholder="Email" 
+                        value="<%= typeof email != 'undefined' ? email : '' %>"
+                        required>
                     <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                     </span>
-                    <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
-                    </span>
                 </div>
-                <p class="help is-success"></p>
             </div>
 
             <div class="field">
                 <label class="label">Password</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input" name="password" type="password" required>
+                    <input 
+                    class="input" name="password" type="password" placeholder="password" required>
                     <span class="icon is-small is-left">
                         <i class="fas fa-key"></i>
                     </span>
-                    <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
-                    </span>
                 </div>
-                <p class="help is-success"></p>
             </div>
 
             <div class="field">
                 <label class="label">Confirm Password</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input" name="password2" type="password" required>
+                    <input class="input" name="password2" type="password" placeholder="confirm password" required>
                     <span class="icon is-small is-left">
                         <i class="fas fa-key"></i>
                     </span>
-                    <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
-                    </span>
                 </div>
-                <p class="help is-success"></p>
             </div>
 
             <div class="box dropdowns">
-                <div class="field">
-                    <label class="label">What I teach</label>
-                    <div class="control">
-                        <div class="select">
-                            <select name="toTeach">
-                                <% for(let i = 0; i < skills.length; i++) { %>
-                                <option skillid="<%= skills[i].dataValues.id %>"><%= skills[i].dataValues.name %>
-                                </option>
-                                <% } %>
-                            </select>
+                <label class="label">Skills (you can add more from your profile later)</label>
+                <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">What I teach</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select name="toTeach">
+                                        <% for(let i = 0; i < skills.length; i++) { %>
+                                        <option skillid="<%= skills[i].dataValues.id %>">
+                                            <%= skills[i].dataValues.name %>
+                                        </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <label class="label">What I want to learn</label>
-                    <div class="control">
-                        <div class="select">
-                            <select name="toLearn">
-                                <% for(let i = 0; i < skills.length; i++) { %>
-                                <option skillid="<%= skills[i].dataValues.id %>"><%= skills[i].dataValues.name %>
-                                </option>
-                                <% } %>
-                            </select>
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">What I want to learn</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select name="toLearn">
+                                        <% for(let i = 0; i < skills.length; i++) { %>
+                                        <option skillid="<%= skills[i].dataValues.id %>">
+                                            <%= skills[i].dataValues.name %>
+                                        </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">About Me</label>
+                <label class="label">About Me (optional)</label>
                 <div class="control">
-                    <textarea name="description" class="textarea" id="aboutMe" placeholder="Textarea"></textarea>
+                    <textarea name="description" class="textarea" id="aboutMe"placeholder="Describe yourself!"><%= typeof description != 'undefined' ? description : '' %></textarea>
                 </div>
             </div>
 
