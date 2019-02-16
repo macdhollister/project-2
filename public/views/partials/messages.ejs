@@ -7,6 +7,15 @@
     <% }); %>
 <%  } %>
 
+<% if (typeof errorArray !== "undefined") { %>
+    <% console.log(errorArray) %>
+    <% errorArray.forEach(error => { %>
+        <div class="notification is-warning">
+            <%= error.msg %>
+            <button class="delete"></button>
+        </div>
+    <% }) %>
+<% } %>
 
 <% if (successMsg != "") { %>
     <div class="notification is-success">

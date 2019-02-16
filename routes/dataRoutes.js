@@ -100,7 +100,27 @@ router.get("/api/skills/:id", (req, res) => {
         .then(results => res.json(results));
 });
 
-// 
+// Creates a new skill
+router.post("/api/skills", (req, res) => {
+    const { skillName } = req.body;
+
+    db.Skill.findOrCreate({
+        where: {
+            name: skillName
+        }
+    }).then(skill => {
+        const created = skill[1];
+        if (created) {
+            req.flash("successMsg", "Skill successfully created! Add it to teach or learn below.");
+            res.redirect("/profile");
+        } else {
+            req.flash("errorMsg", "That skill is already on our list!");
+            res.redirect("/profile");          
+        }
+    });
+});
+
+// Send email
 router.post("/send", (req, res) => {
     const output = `
     <p>Someone is interested in trading skills with you!</p>
@@ -151,7 +171,8 @@ router.post("/send", (req, res) => {
 
 });
 
-router.post("/updateBio", (req, res) => {
+// Update user Bio
+router.post("/updateDescription", (req, res) => {
     const { newDescription } = req.body;
     
     db.User.update(
@@ -165,6 +186,106 @@ router.post("/updateBio", (req, res) => {
     ).then(() => {
         req.flash("successMsg", "Description successfully updated");
         res.redirect("/profile");
+    });
+});
+
+// Update user's email
+router.post("/updateEmail", (req, res) => {
+    const { newEmail } = req.body;
+    
+    db.User.update(
+        { email: newEmail },
+        {
+            fields: ["email"],
+            where: {
+                id: req.user.dataValues.id
+            }
+        }
+    ).then(() => {
+        req.flash("successMsg", "Email address successfully updated");
+        res.redirect("/profile");
+    });
+});
+
+// Remove skill from user's ToTeach
+router.delete("/api/users/skills/toTeach", (req, res) => {
+    const { skillId } = req.body;
+
+    db.SkillToTeach.destroy({
+        where: {
+            $and: {
+                userId: req.user.dataValues.id,
+                skillId: skillId
+            }
+        }
+    });
+});
+
+// Add new skill to user's ToTeach
+router.post("/api/users/skills/toTeach", (req, res) => {
+    const { toTeach } = req.body;
+
+    db.Skill.findOrCreate({
+        where: {
+            name: toTeach
+        }
+    }).then(skill => {
+        db.SkillToTeach.findOrCreate({
+            where: {
+                userId: req.user.dataValues.id,
+                skillId: skill[0].dataValues.id
+            }
+        }).then(skill => {
+            const created = skill[1];
+            if (created) {
+                req.flash("successMsg", "Skill to Teach successfully added!");
+                res.redirect("/profile");
+            } else {
+                req.flash("errorMsg", "You're already teaching that skill!");
+                res.redirect("/profile");
+            }
+        });
+    });
+});
+
+// Remove skill from user's ToLearn
+router.delete("/api/users/skills/toLearn", (req, res) => {
+    const { skillId } = req.body;
+
+    db.SkillToLearn.destroy({
+        where: {
+            $and: {
+                userId: req.user.dataValues.id,
+                skillId: skillId
+            }
+        }
+    });
+});
+
+// Add new skill to user's ToLearn
+router.post("/api/users/skills/toLearn", (req, res) => {
+    const { toLearn } = req.body;
+
+    db.Skill.findOrCreate({
+        where: {
+            name: toLearn
+        }
+    }).then(skill => {
+        db.SkillToLearn.findOrCreate({
+            where: {
+                userId: req.user.dataValues.id,
+                skillId: skill[0].dataValues.id
+            }
+        }).then(skill => {
+            const created = skill[1];
+            if (created) {
+                req.flash("successMsg", "Skill to Learn successfully added!");
+                res.redirect("/profile");
+            } else {
+                req.flash("errorMsg", "You're already learning that skill!");
+                res.redirect("/profile");
+            }
+        });
     });
 });
 

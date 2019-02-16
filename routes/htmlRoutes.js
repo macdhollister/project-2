@@ -49,7 +49,6 @@ router.get("/", (req, res) => {
 
 // Home Page (with results from search)
 router.post("/search", (req, res) => {
-    console.log(req.body.skillName);
     db.Skill.findOne({
         attributes: ["id"],
         where: {
@@ -150,37 +149,88 @@ router.get("/about", (req, res) => {
     res.render(dir("about.ejs"));
 });
 
+// User Profile page
+// router.get("/profile", isAuthenticated, (req, res) => {
+//     db.SkillToTeach.findAll({
+//         where:
+//             {
+//                 userId: req.user.dataValues.userId
+//             }
+//     }).then(teachResults => {
+//         // for (let i = 0; i < teachResults.length; i++) {
+//         //     teachResults[i] = teachResults[i].dataValues.id;
+//         // }
+//         db.SkillToLearn.findAll({
+//             where:
+//                 {
+//                     userId: req.user.dataValues.userId
+//                 }
+//         }).then(learnResults => {
+//             // for (let i = 0; i < learnResults.length; i++) {
+//             //     learnResults[i] = learnResults[i].dataValues.id;
+//             // }
+//             db.Skill.findAll().then(skills => {
+//                 for (let i = 0; i < skills.length; i++) {
+//                     skills[i] = {
+//                         id: skills[i].dataValues.id,
+//                         name: skills[i].dataValues.name
+//                     };
+//                 }
+//                 res.render(dir("profile.ejs"), {
+//                     user: req.user,
+//                     teachResults: teachResults,
+//                     learnResults: learnResults,
+//                     skills: skills
+//                 });
+//             });
+//         });
+//     });
+// });
+
+// User Profile page
 router.get("/profile", isAuthenticated, (req, res) => {
-    db.SkillToTeach.findAll({
-        where:
+    db.User.findOne({
+        where: {
+            id: req.user.dataValues.id
+        },
+        attributes: ["id", "username", "email", "description"],
+        include: [
             {
-                userId: req.user.dataValues.userId
+                model: db.SkillToLearn,
+                as: "skillsLearning",
+                attributes: ["skillId"]
+            },
+            {
+                model: db.SkillToTeach,
+                as: "skillsTeaching",
+                attributes: ["skillId"]
             }
-    }).then(teachResults => {
-        for (let i = 0; i < teachResults.length; i++) {
-            teachResults[i] = teachResults[i].dataValues.id;
-        }
-        db.SkillToLearn.findAll({
-            where:
+        ]
+    }).then(userResults => {
+        userResults = userResults.dataValues;
+        db.Skill.findAll({
+            include: [
                 {
-                    userId: req.user.dataValues.userId
+                    model: db.SkillToLearn,
+                    as: "usersLearning",
+                    attributes: ["userId", "createdAt", "updatedAt"]
+                },
+                {
+                    model: db.SkillToTeach,
+                    as: "usersTeaching",
+                    attributes: ["userId", "createdAt", "updatedAt"]
                 }
-        }).then(learnResults => {
-            for (let i = 0; i < learnResults.length; i++) {
-                learnResults[i] = learnResults[i].dataValues.id;
+            ]
+        }).then(skillResults => {
+            for (let i = 0; i < skillResults.length; i++) {
+                skillResults[i] = {
+                    id: skillResults[i].dataValues.id,
+                    name: skillResults[i].dataValues.name
+                };
             }
-            db.Skill.findAll({
-                where:
-                    {
-                        id: [...teachResults, ...learnResults]
-                    }
-            }).then(skills => {
-                res.render(dir("profile.ejs"), {
-                    user: req.user,
-                    teachResults: teachResults,
-                    learnResults: learnResults,
-                    skills: skills
-                });
+            res.render(dir("profile.ejs"), {
+                user: userResults,
+                skills: skillResults
             });
         });
     });
