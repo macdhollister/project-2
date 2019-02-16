@@ -3,13 +3,20 @@ $(() => {
 
     $("#chat").submit(e => {
         e.preventDefault(); // prevents page reloading
-        socket.emit("chat message", $("#message").val());
+        socket.emit("chat message", {
+            msg: $("#message").val(),
+            sender: $("#senderU").text()
+        });
         $("#message").val("");
         return false;
     });
 
-    socket.on("chat message", msg => {
-        $("#chathistory").append($("<li class='sender'>").text(msg));
+    socket.on("chat message", cm => {
+        if (cm.sender === $("#senderU").text()) {
+            $("#chathistory").append(`<li class="sender box"><p><strong>${cm.sender}</strong></p> ${cm.msg}`);
+        } else {
+            $("#chathistory").append(`<li class="receiver box"><p><strong>${cm.sender}</strong></p> ${cm.msg}`);
+        }
     });
 
     // Function to close Bulma notifications

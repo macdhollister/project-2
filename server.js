@@ -65,10 +65,16 @@ const chatRoutes = require("./routes/chatRoutes");
 app.use(chatRoutes);
 
 io.on("connection", socket => {
-    socket.on("chat message", msg => {
-        io.emit("chat message", msg);
+    socket.on("chat message", cm => {
+        console.log(cm);
+        io.emit("chat message", {
+            msg: cm.msg,
+            sender: cm.sender
+        });
     });
 });
+
+
 
 db.sequelize.sync().then(() => {
     httpServer.listen(PORT, console.log(`Server listening on PORT ${PORT}`));

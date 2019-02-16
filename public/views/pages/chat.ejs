@@ -1,12 +1,9 @@
 <div class="container">
-  <h1 class="text-center">Hey <strong><%= sender.username %></strong>, you're chatting with <strong><%= receiver.username %></strong>:</h1>
+  <h1 class="text-center">Hey <strong id="senderU"><%= sender.username %></strong>, you're chatting with <strong id="receiverU"><%= receiver.username %></strong>:</h1>
 
   <br>
   
-  <ul id="chathistory" class="box" style="height: 400px">
-    <li class="sender"><strong><%= sender.username %></strong>: hello it's me</li>
-    <li class="receiver"><strong><%= receiver.username %></strong>: hi there</li>
-  </ul>
+  <ul id="chathistory" class="box" style="height: 500px"></ul>
   
   <form action="/chat" method="POST" id="chat">
     <div class="columns is-gapless">
