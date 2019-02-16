@@ -31,4 +31,23 @@ $(() => {
         $(".navbar-menu").toggleClass("is-active");
     });
 
+    $(document).on("click", "button.teachButton", function() {
+        $.ajax({
+            url: "/api/users/skills/toTeach",
+            type: "DELETE",
+            data: {skillId: $(this).attr("data-skillid")}
+        });
+
+        $(this).remove();
+    });
+
+    $(document).on("click", "button.learnButton", function() {
+        $.ajax({
+            url: "/api/users/skills/toLearn",
+            type: "DELETE",
+            data: {skillId: $(this).attr("data-skillid")}
+        });
+
+        $(this).remove();
+    });
 });
