@@ -132,6 +132,11 @@ letter-spacing: 1px;
     margin-top: 10px;
 }
 
+.learnButton {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
 .navbar, .cardDivs, .box, #skillSearch {
     background-color:#F5F5F5
 }
