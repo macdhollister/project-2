@@ -208,7 +208,7 @@ router.post("/updateEmail", (req, res) => {
 });
 
 // Remove skill from user's ToTeach
-router.delete("/api/users/skills/toTeach", (req, res) => {
+router.delete("/api/users/skills/toTeach", (req) => {
     const { skillId } = req.body;
 
     db.SkillToTeach.destroy({
@@ -249,7 +249,7 @@ router.post("/api/users/skills/toTeach", (req, res) => {
 });
 
 // Remove skill from user's ToLearn
-router.delete("/api/users/skills/toLearn", (req, res) => {
+router.delete("/api/users/skills/toLearn", (req) => {
     const { skillId } = req.body;
 
     db.SkillToLearn.destroy({
