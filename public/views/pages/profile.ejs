@@ -1,61 +1,139 @@
 <main class="Site-content">
 
-    <% include ../partials/messages %>
-
     <!-- Hero Welcome Card -->
 
-    <section class="hero is-light">
-        <div class="hero-body">
-            <div class="container">
-                
-                <h1 class="title">
-                    Profile View
-                </h1>
-                <h2 class="subtitle">
-                    Welcome <%= user.dataValues.username %>
-                </h2>
-                <h6 class="profileFont">
-                    Email: <%= user.dataValues.email %>
-                    <button class="is-small" id="emailButton" type="submit">Update eMail</button>
-                    <br>
-                    About Me: <%= user.dataValues.description %>
-                    <button class="is-small" id="bioButton" type="submit">Update Bio</button>
-                    <br>
-                    User Since: <%= user.dataValues.createdAt %>
-                    <br>
-                    Last Updated: <%= user.dataValues.updatedAt %>
-                </h6>
+    <div class="box profile">
+        <h1 class="is-size-4 has-text-weight-bold has-text-info">Welcome <%= user.username %>!</h1>
+        <% include ../partials/messages %>
+        <p>—————————————————————————————————————————————</p>
 
+        <div class="box is-clearfix">
+            <form action="/updateDescription" method="POST">
+                <label class="label">Update Bio</label>
+                <div class="control">
+                    <textarea name="newDescription" class="textarea"><%= user.description.trim() %></textarea>
+                </div>
+                <button class="button is-link profileFormButton" id="bioButton" type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="box is-clearfix">
+            <form action="/updateEmail" method="POST">
+                <label class="label">Update Email</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" name="newEmail" type="email" placeholder="<%= user.email %>" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </div>
+                <button class="button is-link profileFormButton" type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="box is-clearfix">
+            <form action="/updatePassword" method="POST">
+                <label class="label">Update Password</label>
+                <div class="control has-icons-left">
+                    <input class="input" name="current" type="password" placeholder="Current Password" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-key"></i>
+                    </span>
+                </div>
+
+                <div class="control has-icons-left">
+                    <input class="input" name="newPass" type="password" placeholder="New Password" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-key"></i>
+                    </span>
+                </div>
+
+                <div class="control has-icons-left">
+                    <input class="input" name="newPassConfirm" type="password" placeholder="Confirm New Password"
+                        required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-key"></i>
+                    </span>
+                </div>
                 <br>
-                <h6 class="profileFont">
-                        <div class="teaching">
-                            <h6 class="is-size-5">Teaching</h6>
-                            <div class="buttons are-small">
-                            </div>
-                        </div>
-                        <br>
+                <button class="button is-link profileFormButton" id="passButton" type="submit">Submit</button>
+            </form>
+        </div>
 
-                        <div class="learning">
-                            <h6 class="is-size-5">Learning</h6>
+        <div class="box is-clearfix">
+            <div class="columns">
+                <div class="column">
+                    <label class="label">Skills You Teach</label>
+                    <% user.skillsTeaching.forEach(skill => { %>
+                        <% skill = skill.dataValues.skillId %>
+                        <button class="button teachButton is-danger is-small"
+                        data-skillId="<%= skill %>"><%= skills[skill-1].name %></button>
+                    <% }) %>
+                </div>
 
-                        </div>
-                </h6>
-
-                <br>
-                <h6 class="profileFont">
-                    Update Password:
-                <br>
-                <form action="/updatePassword" method="POST">
-                    <input class="input is-rounded passInput" name="current" type="text" placeholder="Current Password">
-                    <input class="input is-rounded passInput" name="newPass" type="text" placeholder="New Password">
-                    <input class="input is-rounded passInput" name="newPassConfirm" type="text" placeholder="Confirm New Password">
-                    <br>
-                    <button class="is-small" id="passButton" type="submit">Change Password</button>
-                </form>
-                <h6>
-
+                <div class="column">
+                    <label class="label">Skills You Want To Learn</label>
+                    <% user.skillsLearning.forEach(skill => { %>
+                        <% skill = skill.dataValues.skillId %>
+                        <button class="button learnButton is-danger is-small"
+                        data-skillId="<%= skill %>"><%= skills[skill-1].name %></button>
+                    <% }) %>
+                </div>
             </div>
         </div>
-    </section>
+
+        <div class="box is-clearfix">
+            <label class="label">Add New Skills</label>
+            <div class="columns">
+                <div class="column">
+                    <div class="field">
+                        <form action="/api/users/skills/toTeach" method="POST">
+                            <label class="label">I'd like to teach...</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select name="toTeach">
+                                        <% for(let i = 0; i < skills.length; i++) { %>
+                                            <option skillid="<%= skills[i].id %>">
+                                            <%= skills[i].name %>
+                                        </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="button is-link profileFormButton" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="field">
+                        <form action="/api/users/skills/toLearn" method="POST">
+                            <label class="label">I'd like to learn...</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select name="toLearn">
+                                        <% for(let i = 0; i < skills.length; i++) { %>
+                                            <option skillid="<%= skills[i].id %>">
+                                            <%= skills[i].name %>
+                                        </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="button is-link profileFormButton" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box is-clearfix">
+            <label class="label">Didn't find the skill you were looking for?</label>
+            <label class="label">Add a new skill to our list!</label>
+            <form action="/api/skills" method="POST">
+                <input class="input" name="skillName" placeholder="New Skill">
+                <button class="button is-link profileFormButton" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
 </main>
