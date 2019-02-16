@@ -150,7 +150,7 @@ router.post("/updatePassword", (req, res) => {
                         id: req.user.dataValues.id
                     }
                 }
-            ).then(response => {
+            ).then(() => {
                 req.flash("successMsg", "Password successfully updated");
                 res.redirect("/profile");
             });
