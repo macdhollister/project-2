@@ -4,9 +4,11 @@ const expressLayouts = require("express-ejs-layouts");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
-
 const app = express();
 const PORT = process.env.PORT || 8080;
+const httpServer = require("http").Server(app);
+const io = require("socket.io")(httpServer);
+
 
 // Passport config
 require("./config/passport")(passport);
@@ -47,7 +49,7 @@ app.use((req, res, next) => {
 
 // Other Middleware
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 // Routes
 const authRoutes = require("./routes/authRoutes");
@@ -62,6 +64,12 @@ app.use(htmlRoutes);
 const chatRoutes = require("./routes/chatRoutes");
 app.use(chatRoutes);
 
+io.on("connection", socket => {
+    socket.on("chat message", msg => {
+        io.emit("chat message", msg);
+    });
+});
+
 db.sequelize.sync().then(() => {
-    app.listen(PORT, console.log(`Server listening on PORT ${PORT}`));
+    httpServer.listen(PORT, console.log(`Server listening on PORT ${PORT}`));
 });

@@ -1,3 +1,17 @@
+#chathistory li {
+    margin: 10px;
+    padding: 10px;
+}
+
+li.sender {
+    background-color: hsl(171, 100%, 41%);
+    text-align: right;
+}
+
+li.receiver {
+    background-color: hsl(48, 100%, 67%);
+}
+
 .userName, .userEmail {
     margin-right: 5px;
 }
