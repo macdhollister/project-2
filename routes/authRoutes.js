@@ -114,4 +114,48 @@ router.get("/logout", (req, res) => {
     res.redirect("/login"); // redirect to login page
 });
 
+router.post("/updatePassword", (req, res) => {
+    console.log(req.user.dataValues.id);
+
+    // asks for current password as well as the updated password
+    const { current, newPass, newPassConfirm } = req.body;
+    const errors = [];
+
+    bcrypt.compare(current, req.user.dataValues.password, (err, isMatch) => {
+        if (err) { throw err; }
+
+        if (!isMatch) {
+            errors.push({msg: "Incorrect current password"});
+        }
+
+        if (newPass !== newPassConfirm) {
+            errors.push({msg: "Updated passwords do not match"});
+        }
+
+        if (newPass.length < 6) {
+            errors.push({msg: "Password must be at least 6 characters"});
+        }
+
+        if (errors.length > 0) {
+            // re-render current page
+            res.render("profile", {
+                errors
+            });
+        } else {
+            db.User.update(
+                { password: bcrypt.hashSync(newPass, bcrypt.genSaltSync(10)) },
+                {
+                    fields: ["password"],
+                    where: {
+                        id: req.user.dataValues.id
+                    }
+                }
+            ).then(() => {
+                req.flash("successMsg", "Password successfully updated");
+                res.redirect("/profile");
+            });
+        }
+    });
+});
+
 module.exports = router;

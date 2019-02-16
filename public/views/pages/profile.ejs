@@ -29,13 +29,13 @@
                         <div class="teaching">
                             <h6 class="is-size-6">Teaching</h6>
                             <div class="buttons are-small">
-                                <% User.dataValues.forEach(skill => { %>
-                                    <% skill = skill.dataValues.skillId %>
-                                    <a class="button" data-skillId="<%= skill %>"><%= skills[skill-1].dataValues.name %></a>
-                                <% }); %>
                             </div>
                         </div>
 
+                        <div class="learning">
+                            <h6 class="is-size-6">Learning</h6>
+
+                        </div>
                 </h6>
 
                 <br>
@@ -46,7 +46,8 @@
                     <input class="input is-rounded passInput" name="current" type="text" placeholder="Current Password">
                     <input class="input is-rounded passInput" name="newPass" type="text" placeholder="New Password">
                     <input class="input is-rounded passInput" name="newPassConfirm" type="text" placeholder="Confirm New Password">
-                    <button type="submit">Change Password</button>
+                    <br>
+                    <button class="is-small" type="submit">Change Password</button>
                 </form>
                 <h6>
 
