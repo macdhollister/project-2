@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="text-center"><%= sender.username %> & <%= receiver.username %></h1>
+  
+  <ul id="chat" class="box" style="height: 400px">
+    <li class="sender"><strong><%= sender.username %></strong>: hello it's me</li>
+    <li class="receiver"><strong><%= receiver.username %></strong>: hi there</li>
+  </ul>
+  
+  <form action="/chat" method="POST" id="chat">
+    <div class="columns is-gapless">
+      <div class="column">
+        <textarea id="message" name="message" class="textarea is-primary has-fixed-size" style="resize: none"></textarea>
+      </div>
+      <div class="column is-1">
+        <button type="submit" class="button is-primary is-large" style="height: 100%; width: 100%;">Send</button>
+      </div>
+    </div>
+  </form>
+</div>

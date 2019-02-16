@@ -59,6 +59,9 @@ app.use(dataRoutes);
 const htmlRoutes = require("./routes/htmlRoutes");
 app.use(htmlRoutes);
 
+const chatRoutes = require("./routes/chatRoutes");
+app.use(chatRoutes);
+
 db.sequelize.sync().then(() => {
     app.listen(PORT, console.log(`Server listening on PORT ${PORT}`));
 });
