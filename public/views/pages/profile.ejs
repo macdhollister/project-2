@@ -16,8 +16,10 @@
                 </h2>
                 <h6 class="profileFont">
                     Email: <%= user.dataValues.email %>
+                    <button class="is-small" id="emailButton" type="submit">Update eMail</button>
                     <br>
                     About Me: <%= user.dataValues.description %>
+                    <button class="is-small" id="bioButton" type="submit">Update Bio</button>
                     <br>
                     User Since: <%= user.dataValues.createdAt %>
                     <br>
@@ -27,13 +29,14 @@
                 <br>
                 <h6 class="profileFont">
                         <div class="teaching">
-                            <h6 class="is-size-6">Teaching</h6>
+                            <h6 class="is-size-5">Teaching</h6>
                             <div class="buttons are-small">
                             </div>
                         </div>
+                        <br>
 
                         <div class="learning">
-                            <h6 class="is-size-6">Learning</h6>
+                            <h6 class="is-size-5">Learning</h6>
 
                         </div>
                 </h6>
@@ -47,7 +50,7 @@
                     <input class="input is-rounded passInput" name="newPass" type="text" placeholder="New Password">
                     <input class="input is-rounded passInput" name="newPassConfirm" type="text" placeholder="Confirm New Password">
                     <br>
-                    <button class="is-small" type="submit">Change Password</button>
+                    <button class="is-small" id="passButton" type="submit">Change Password</button>
                 </form>
                 <h6>
 
