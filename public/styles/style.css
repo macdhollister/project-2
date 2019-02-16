@@ -4,12 +4,12 @@
 }
 
 li.sender {
-    background-color: hsl(171, 100%, 41%);
+    background-color: #00E5C3;
     text-align: right;
 }
 
 li.receiver {
-    background-color: hsl(48, 100%, 67%);
+    background-color: #ffdd57;
 }
 
 .userName, .userEmail {

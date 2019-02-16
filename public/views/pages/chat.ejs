@@ -1,5 +1,7 @@
 <div class="container">
-  <h1 class="text-center"><%= sender.username %> & <%= receiver.username %></h1>
+  <h1 class="text-center">Hey <strong><%= sender.username %></strong>, you're chatting with <strong><%= receiver.username %></strong>:</h1>
+
+  <br>
   
   <ul id="chathistory" class="box" style="height: 400px">
     <li class="sender"><strong><%= sender.username %></strong>: hello it's me</li>
@@ -9,11 +11,13 @@
   <form action="/chat" method="POST" id="chat">
     <div class="columns is-gapless">
       <div class="column">
-        <textarea id="message" name="message" class="textarea is-primary has-fixed-size" style="resize: none"></textarea>
+        <textarea id="message" name="message" class="textarea is-primary has-fixed-size" style="resize: none" placeholder="Type your message here..."></textarea>
       </div>
       <div class="column is-1">
         <button type="submit" class="button is-primary is-large" style="height: 100%; width: 100%;">Send</button>
       </div>
     </div>
   </form>
+
+  <br>
 </div>
