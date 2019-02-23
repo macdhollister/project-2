@@ -147,9 +147,13 @@ letter-spacing: 1px;
     margin-top: 10px;
 }
 
-.learnButton {
+.learnButton, .teachButton {
     margin-top: 2px;
     margin-bottom: 2px;
+}
+
+.notification {
+    margin-top: 15px;
 }
 
 .navbar, .cardDivs, .box, #skillSearch {
