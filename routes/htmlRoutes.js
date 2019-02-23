@@ -148,7 +148,7 @@ router.get("/contact", (req, res) => {
 });
 
 // Email skill.it user
-router.get("/email", (req, res) => {
+router.get("/email", isAuthenticated, (req, res) => {
     res.render(dir("email.ejs"));
 });
 
