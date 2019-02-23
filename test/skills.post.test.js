@@ -40,13 +40,6 @@ describe("POST /api/skills", () => {
 
                 expect(res).to.redirectTo("/profile");
 
-                // expect(res.redirects).to.have.length(1);
-                // expect(res.redirects[0]).to.contain("/profile");
-
-                // expect(responseBody)
-                //     .to.be.an("object")
-                //     .that.includes(reqBody);
-
                 // The `done` function is used to end any asynchronous tests
                 done();
             });
