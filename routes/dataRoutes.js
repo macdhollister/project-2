@@ -115,7 +115,7 @@ router.post("/api/skills", (req, res) => {
             res.redirect("/profile");
         } else {
             req.flash("errorMsg", "That skill is already on our list!");
-            res.redirect("/profile");          
+            res.redirect("/profile");
         }
     });
 });

@@ -8,7 +8,6 @@ const PORT = process.env.PORT || 8080;
 const httpServer = require("http").Server(app);
 const io = require("socket.io")(httpServer);
 
-
 // Passport config
 require("./config/passport")(passport);
 
@@ -77,3 +76,5 @@ io.on("connection", socket => {
 db.sequelize.sync().then(() => {
     httpServer.listen(PORT, console.log(`Server listening on PORT ${PORT}`));
 });
+
+module.exports = app;
