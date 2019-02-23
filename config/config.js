@@ -12,9 +12,10 @@ module.exports = {
     "test": {
         "username": "root",
         "password": process.env.DB_PASSWORD,
-        "database": "skillit",
+        "database": "skillit2",
         "host": "127.0.0.1",
-        "dialect": "mysql"
+        "dialect": "mysql",
+        "logging": false
     },
     "production": {
         "use_env_variable": "JAWSDB_URL",
