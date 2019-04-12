@@ -1,5 +1,7 @@
 # skill.it
 
+## Heroku deployment: https://skillit-si.herokuapp.com/
+
 Share your skills, talents, and experience in a whole new way with skill.it.
 
 skill.it is a cashless skills exchange platform where you can teach others what you are good at and learn something you are interested in in return.
